@@ -11,6 +11,7 @@
   <ItemGroup>
     <ProjectReference Include="..\..\src\Northwind.EntityFrameworkCore\Northwind.EntityFrameworkCore.csproj" />
     <ProjectReference Include="..\Northwind.Application.Tests\Northwind.Application.Tests.csproj" />
+    <PackageReference Include="Metalama.Framework" Version="2025.1.2-preview" />
     <PackageReference Include="Volo.Abp.EntityFrameworkCore.Sqlite" Version="9.1.1" />
   </ItemGroup>
 
