@@ -1,4 +1,6 @@
 ﻿using System;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Volo.Abp.Uow;
 using Volo.Abp.AuditLogging.EntityFrameworkCore;
@@ -49,6 +51,15 @@ public class NorthwindEntityFrameworkCoreModule : AbpModule
                  * See also NorthwindMigrationsDbContextFactory for EF Core tooling. */
             options.UseSqlServer();
         });
+        
+        var configuration = context.Services.GetConfiguration();
+
+        context.Services.AddDbContext<SampleDbContext>(options =>
+        {
+            options.UseSqlServer(configuration.GetConnectionString("Sample"));
+            
+        });
+        
 
     }
 }
