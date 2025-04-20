@@ -1,11 +1,14 @@
 using System;
 using System.Collections.Generic;
+using System.Threading;
+using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 using Northwind.Sample;
+using Volo.Abp.EntityFrameworkCore;
 
 namespace Northwind.EntityFrameworkCore;
 
-public partial class SampleDbContext : DbContext
+public partial class SampleDbContext : DbContext , IEfCoreDbContext
 {
     public SampleDbContext()
     {
@@ -15,6 +18,12 @@ public partial class SampleDbContext : DbContext
         : base(options)
     {
     }
+    
+    public async Task<int> SaveChangesOnDbContextAsync(bool acceptAllChangesOnSuccess, CancellationToken cancellationToken = default)
+    {
+        return await base.SaveChangesAsync(acceptAllChangesOnSuccess, cancellationToken);
+    }
+    
 
     public virtual DbSet<Alphabetical_list_of_product> Alphabetical_list_of_products { get; set; }
 
