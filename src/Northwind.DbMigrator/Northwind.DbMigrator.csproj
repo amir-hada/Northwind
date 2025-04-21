@@ -22,6 +22,7 @@
   </ItemGroup>
 
   <ItemGroup>    
+    <PackageReference Include="Metalama.Framework" Version="2025.1.2-preview" />    
     <PackageReference Include="Serilog.Extensions.Logging" Version="8.0.0" />
     <PackageReference Include="Serilog.Sinks.Async" Version="2.0.0" />
     <PackageReference Include="Serilog.Sinks.File" Version="6.0.0" />
